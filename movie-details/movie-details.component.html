@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-3">
+
+        <img *ngIf="itemDetails.poster_path" [src]="imgprefix+itemDetails.poster_path" class="w-100  " alt="">
+        <img *ngIf="itemDetails.profile_path"  [src]="imgprefix+itemDetails.profile_path" class="w-100  " alt="">
+
+    </div>
+
+    <div class="col-md-9 d-flex align-items-center">
+        <div>
+            <h2 class="h4 my-2" >{{itemDetails.title}} {{itemDetails.name}}</h2>
+        <p class=" my-2 lead textcolor" style="font-size: small;">{{itemDetails.overview}}</p>
+
+        <h6 class="lead textcolor"> Vot Count :  {{itemDetails.vote_count}}</h6>
+        <h6 class="lead textcolor"> Vot Average :  {{itemDetails.vote_average}}</h6>
+        </div>
+
+
+
+    </div>
+</div>
+
