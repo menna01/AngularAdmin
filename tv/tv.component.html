@@ -1,0 +1,23 @@
+<p>tv works!</p>
+
+  
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>password</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of allUsers">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password.slice(0,15)}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+   
+

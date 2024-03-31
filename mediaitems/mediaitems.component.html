@@ -1,0 +1,14 @@
+
+    <div class="Movie position-relative" id="movie">
+        <!-- routing parameters -->
+        <a [routerLink]="['/movieDetails',Movie.id,Movie.media_type]"> 
+            <img *ngIf="Movie.poster_path" [src]="imgprefix+Movie.poster_path" class="w-100 imgg " alt="">
+            <img *ngIf="Movie.profile_path"  [src]="imgprefix+Movie.profile_path" class="w-100 imgg " alt="">
+
+        <h3 class="h6 my-2" style="font-size: medium;">{{Movie.title}} {{Movie.name}}</h3>
+
+        <div *ngIf="Movie.vote_average" class="Vote position-absolute top-0 p-1 end-0 text-white">{{Movie.vote_average.toFixed(1)}}</div>
+        </a>
+           
+    </div>
+

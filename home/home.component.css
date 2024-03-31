@@ -1,0 +1,8 @@
+
+*{
+    box-sizing: border-box;
+}
+#movie .imgg:hover{
+  cursor: pointer;
+  padding: 2px;
+}
