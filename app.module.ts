@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MediaitemsComponent } from './mediaitems/mediaitems.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { AddformComponent } from './addform/addform.component';
 // import { ProductsComponent } from './products/products.component';
 
 
@@ -34,6 +35,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     FooterComponent,
     MediaitemsComponent,
     MovieDetailsComponent,
+    AddformComponent,
   ],
   imports: [
     BrowserModule,
