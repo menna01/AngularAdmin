@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable , BehaviorSubject} from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable , BehaviorSubject, catchError} from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { json } from 'stream/consumers';
 import { Router } from '@angular/router';
+import { tick } from '@angular/core/testing';
+import { error } from 'console';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,9 @@ export class AuthService {
   }
 
 
-  userData:any = new BehaviorSubject(null);//have 2 method getValue and to give value
+  userData:any = new BehaviorSubject(null);
+  
+ productData:any=new BehaviorSubject(null);//have 2 method getValue and to give value
 
   saveUserData(){
     //get token fron local storage 
@@ -39,7 +44,11 @@ export class AuthService {
   signUp(userData:object):Observable<any>{
     return this._httpClient.post('https://e-commerce-aibk.onrender.com/api/v1/users/login/',userData);
   }
+
+
+
+  }
   // signin(userData:object):Observable<any>{
   //   return this._httpClient.post('https://route-egypt-api.herokuapp.com/signin/',userData);
   // }
-}
+

@@ -13,6 +13,7 @@ import { notDeepEqual } from 'assert';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { authGuard } from './auth.guard';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { AddformComponent } from './addform/addform.component';
 
 const routes: Routes = [
   // {path:"root",component:AppComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
 
   // {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path:"addform",component:AddformComponent},
   {path:"about",component:AboutComponent},
   {path:"tv",component:TvComponent},
   {path:"people",component:PeopleComponent},

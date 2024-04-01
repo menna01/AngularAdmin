@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesComponent } from '../movies/movies.component';
 import { MoviesService } from '../movies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +11,7 @@ import { MoviesService } from '../movies.service';
 export class AboutComponent implements OnInit {
 
 
-  constructor(private _movieService:MoviesService){
+  constructor(private _movieService:MoviesService,private _router:Router){
 
   }
 
@@ -18,6 +19,9 @@ export class AboutComponent implements OnInit {
 
   AllProductsForAdmin:any[]=[];
 
+goToAddProduct(){
+  this._router.navigate([`/addform`]);
+}
 
   ngOnInit(): void {
     
