@@ -51,6 +51,8 @@ goToAddProduct(){
         // const index=this.AllProductsForAdmin.findIndex(product=>product.id===id);
         // if(index !== -1){
         //   this.AllProductsForAdmin.splice(index,1);
+        // $('#confirmationModal').modal('show');
+
 
         const Tr=event.target.closest('tr');
         if(Tr){

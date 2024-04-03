@@ -1,1 +1,105 @@
-<p>orders works!</p>
+ <h2>Orders</h2><!-- <div class="row">
+
+    
+  
+
+    <div *ngFor="let order of allOrders" class="col-md-2">
+        <p>{{order.User}}</p>
+
+
+        <div *ngFor="let item of cartItems " class="col-md-2">
+        <p>{{item.product}}</p>
+        <p>{{item.quantity}}</p>
+        <p>{{item.price}}</p>
+
+        </div>
+
+
+        <p>{{order.taxPrice}}</p>
+        <p>{{order.shippingPrice}}</p>
+        <p>{{order.totalPrice}}</p>
+        <p>{{order.PaymentMethod}}</p>
+        <p>{{order.isPaid}}</p>
+        <p>{{order.isDelivered}}</p>
+
+
+       
+    
+    </div>
+
+    </div> -->
+    <!-- *ngIf="response && response.status === 'success'" -->
+    <div class="container">
+       <div class="row">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>User</th>
+                <!-- <th>Shopping Cart</th> -->
+                <th>Tax Price</th>
+                <th>Shipping Price</th>
+                <th>Total Price</th>
+                <th>Payment Method</th>
+                <th>IsPaid</th>
+                <th>IsDelivered</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th class="text-white">.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of allOrders">
+                <td>{{ order.User }}
+                    <!-- <h6 class="fw-bolder">cartItems</h6>
+                    <ul>
+                        <li *ngFor="let item of order.cartItems">
+                          <p>Product ID: {{ item.product }}</p>
+                          <p>Quantity: {{ item.quantity }}</p>
+                          <p>Price: {{ item.price }}</p>
+                        </li>
+                      </ul> -->
+                </td>
+                <!-- <td>{{ order.shoppingCart }}</td> -->
+                <td>{{ order.taxPrice }}</td>
+                <td>{{ order.shippingPrice }}</td>
+                <td>{{ order.totalPrice }}</td>
+                <td>{{ order.PaymentMethod }}</td>
+                <td>{{ order.isPaid }}</td>
+                <td>{{ order.isDelivered }}</td>
+                <td>{{ order.createdAt }}</td>
+                <td>{{ order.updatedAt }}</td>
+                <td>
+                
+                </td>
+              </tr>
+            </tbody>
+          </table>
+       </div>
+      
+      </div>
+    <!-- <div >
+        <h2>Orders</h2>
+        <div *ngFor="let order of allOrders">
+          <div class="order">
+            <h3>Order ID: {{ order._id }}</h3>
+            <p>User: {{ order.User }}</p>
+            <p>Shopping Cart: {{ order.shoppingCart }}</p>
+            <p>Tax Price: {{ order.taxPrice }}</p>
+            <p>Shipping Price: {{ order.shippingPrice }}</p>
+            <p>Total Price: {{ order.totalPrice }}</p>
+            <p>Payment Method: {{ order.PaymentMethod }}</p>
+            <p>Is Paid: {{ order.isPaid }}</p>
+            <p>Is Delivered: {{ order.isDelivered }}</p>
+            <p>Created At: {{ order.createdAt }}</p>
+            <p>Updated At: {{ order.updatedAt }}</p>
+            <h4>Cart Items</h4>
+            <ul>
+              <li *ngFor="let item of order.cartItems">
+                <p>Product ID: {{ item.product }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Price: {{ item.price }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> -->

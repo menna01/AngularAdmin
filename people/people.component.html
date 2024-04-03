@@ -1,5 +1,5 @@
-<p>people works!</p>
-<div class="row">
+<!-- <p>people works!</p> -->
+<!-- <div class="row">
   
 
     <div *ngFor="let cat of Allcategories" class="col-md-2">
@@ -7,22 +7,73 @@
 
         <div class="Movie position-relative" >
             <a> 
-                <img  src="cat.image" class="w-25 imgg " alt="no image">
+                <img  [src]="cat.images" class="w-25 imgg " alt="no image">
     
             <h6 class="h6 my-2" style="font-size: medium;">{{cat.name}} </h6>
-            <!-- <h4 class="h6 my-2 lead textcolor" style="font-size: medium;">Price :{{product.price}} </h4>
+            <h4 class="h6 my-2 lead textcolor" style="font-size: medium;">Price :{{product.price}} </h4>
             <h5 class="h6 my-2 lead textcolor " style="font-size: medium;">quantity :{{product.quantity}} </h5>
             <h6 class="h6 my-2 lead  textcolor " style="font-size: medium;">Color :{{product.colors}} </h6> -->
-            <p class="h6 my-2 lead  textcolor " style="font-size: small;">CreatedAt :{{cat.createdAt}} </p>
+            <!-- <p class="h6 my-2 lead  textcolor " style="font-size: small;">{{cat.description}}</p>
+            <p class="h6 my-2 lead  textcolor " style="font-size: small;">{{cat.price}}</p>
+            <p class="h6 my-2 lead  textcolor " style="font-size: small;">{{cat.quantity}}</p> -->
+            <!-- <p class="h6 my-2 lead  textcolor " style="font-size: small;">{{cat.description}}</p> -->
             
 
 
     
             <!-- <div  class="Vote position-absolute top-0 p-1 end-0 text-white">{{product.ratingsAverage.toFixed(1)}}</div> -->
-            </a>
+            <!-- </a>
                
         </div>
     
     </div>
 
-    </div>
+    </div>  -->
+
+    <section id="WORK" class="">
+        <div class="baba  text-center p-5   d-flex justify-content-center ">
+           
+            
+        </div>
+        <div class="container ">
+            <div class="row g-5 ">
+                <div *ngFor="let cat of Allcategories" class=" mother col-md-3 p-2 border-0  ">
+                    <div class="child   shadow">
+                        <div class="pic w-100 mb-4">
+                            <img class="w-100 "  [src]="cat.images" alt="">
+    
+                        </div>
+                       <h2 class="lorem">{{cat.name}}</h2>
+                       <div  class="d-flex justify-content-between pp ">
+                        <!-- <p>{{cat.description}} </p> -->
+                        <!-- <i class="fa-solid fa-circle-plus fa-2x me-3 plus  "></i> -->
+                       </div>
+                       <p class="h6 my-2 lead  textcolor " style="font-size: medium;"> Price : {{cat.price}}</p>
+                                               <!-- <p class="my-2 lead  textcolor">colors : {{cat.colors}} </p>    
+                                                                                           <p class="my-2 lead  textcolor">{{cat.colors[0]}} </p> -->
+             <!-- <div  class="Vote  width text-white">{{cat.ratingsAverage.toFixed(1)}}</div> -->
+
+
+                       <!-- <p class="h6 my-2 lead  textcolor " style="font-size: small;">{{cat.quantity}}</p> -->
+                       
+                    </div>
+                    
+               
+                </div>
+         
+            
+          
+             
+             
+            
+            
+            </div>
+    
+        
+            
+            
+            
+            
+        </div>
+    </section>
+    

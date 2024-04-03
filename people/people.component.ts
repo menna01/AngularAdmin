@@ -20,7 +20,7 @@ export class PeopleComponent implements OnInit {
   ngOnInit(): void {
     this._productService.getCategories().subscribe({
       next:(response)=>{
-        this.Allcategories=response.data.Categories;
+        this.Allcategories=response.data.products.splice(0,8);
         // console.log(response);
         console.log(this.Allcategories);
 

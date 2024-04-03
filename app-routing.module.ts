@@ -15,6 +15,7 @@ import { authGuard } from './auth.guard';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AddformComponent } from './addform/addform.component';
 import { UpdateComponent } from './update/update.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   // {path:"root",component:AppComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:"about",component:AboutComponent},
   {path:"tv",component:TvComponent},
   {path:"people",component:PeopleComponent},
+  {path:"orders",component:OrdersComponent},
   {path:"update/:id",component:UpdateComponent},
   // { path: 'update', component: UpdateComponent, data: { productData:null } },
 
