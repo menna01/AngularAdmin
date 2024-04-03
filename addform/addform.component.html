@@ -13,7 +13,7 @@
 
 
     <label for="description">description :</label>
-    <input  formControlName="description" type="text" class="form-control mb-2 input-mine" name="">
+    <textarea  formControlName="description" class="form-control mb-2 input-mine" name=""></textarea> 
     <div *ngIf="productForm.get('description')?.errors && productForm.get('description')?.touched" class="alert alert-danger py-1">
         <p class="m-0" *ngIf="productForm.get('description')?.errors?.['required']">description is required</p>
         <!-- <p class="m-0" *ngIf="productForm.get('last_name')?.errors?.['minlength']">last name min length is 3</p>
@@ -22,7 +22,7 @@
 
 
     <label for="price">price :</label>
-    <input  formControlName="price" type="text" class="form-control mb-2 input-mine" name="">
+    <input  formControlName="price" type="number" class="form-control mb-2 input-mine" name="">
     <div *ngIf="productForm.get('price')?.errors && productForm.get('price')?.touched" class="alert alert-danger py-1">
         <p class="m-0" *ngIf="productForm.get('price')?.errors?.['required']">price is required</p>
         <!-- <p class="m-0" *ngIf="productForm.get('age')?.errors?.['min']">Age min length is 16</p>
@@ -30,12 +30,24 @@
       </div>
 
     <label for="category">category :</label>
-    <input  formControlName="category" type="text" class="form-control mb-2 input-mine" name="">
+    <select formControlName="category" class="form-control mb-2 input-mine" name="">
+      <option *ngFor="let category of categoris" [value]="category._id">{{ category.name }}</option>
+    </select>
+    
+    <div *ngIf="productForm.get('category')?.errors && productForm.get('category')?.touched" class="alert alert-danger py-1">
+      <p class="m-0" *ngIf="productForm.get('category')?.errors?.['required']">Category is required</p>
+    </div>
+    <!-- <select formControlName="category" class="form-control mb-2 input-mine" name="">
+      <option value="{{categoris[0].id}}">{{categoris[0].name}}</option>
+      <option value="{{categoris[1].id}}">{{categoris[1].name}}</option>
+      <option value="{{categoris[2].id}}">{{categoris[2].name}}</option>
+      <option value="{{categoris[3].id}}">{{categoris[3].name}}</option>
+    </select> 
     <div *ngIf="productForm.get('category')?.errors && productForm.get('category')?.touched" class="alert alert-danger py-1">
         <p class="m-0" *ngIf="productForm.get('category')?.errors?.['required']">category required</p>
-        <!-- <p class="m-0" *ngIf="productForm.get('email')?.errors?.['email']">must be example.gmail</p> -->
+        <p class="m-0" *ngIf="productForm.get('email')?.errors?.['email']">must be example.gmail</p>
         
-      </div>
+      </div> -->
 
     <label for="colors">Colors :</label>
     <input  formControlName="colors" type="text" class="form-control mb-2 input-mine" name="">
@@ -55,7 +67,9 @@
      
 
       <label for="images">images :</label>
-      <input  formControlName="images" type="file" class="form-control mb-2 input-mine" name="">
+      <!-- <img src="{{base64}}" alt=""> -->
+      <input id="fileInput" formControlName="images" type="file" class="form-control mb-2 input-mine" name="images">
+      <!-- (change)="getImagePath($event) -->
       
       <div *ngIf="productForm.get('images')?.errors && productForm.get('images')?.touched" class="alert alert-danger py-2">
           <p class="m-0" *ngIf="productForm.get('images')?.errors?.['required']">images required</p>

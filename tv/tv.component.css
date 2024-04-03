@@ -1,0 +1,25 @@
+.custom-table {
+    background-color: transparent; /* transparent background */
+    border: 1px solid #ddd; /* border color */
+    border-collapse: collapse; /* collapse table borders */
+    width: 100%;
+
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 8px; /* padding for table cells */
+  }
+  
+  .custom-table th {
+    background-color: #f2f2f2; 
+    border: 1px solid #ddd; 
+    color: black;
+  }
+  
+ 
+  
+  /* .custom-table tbody tr:hover {
+    /* cursor: pointer; */
+    /* background-color: #ddd;  */
+  

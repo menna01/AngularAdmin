@@ -36,7 +36,7 @@ export class AuthService {
 
 
   signOut(){
-    localStorage.removeItem('userToken');
+    localStorage.clear();
     this.userData.next(null);
     this._router.navigate(['/register']);
   

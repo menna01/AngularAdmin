@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesComponent } from '../movies/movies.component';
 import { MoviesService } from '../movies.service';
 import { Router } from '@angular/router';
+import { response } from 'express';
+import { NavigationExtras } from '@angular/router';
+import { strict } from 'assert';
 
 @Component({
   selector: 'app-about',
@@ -22,6 +25,9 @@ export class AboutComponent implements OnInit {
 goToAddProduct(){
   this._router.navigate([`/addform`]);
 }
+// UpdateProduct(id:string){
+//   this._router.navigate(['/update']);
+// }
 
   ngOnInit(): void {
     
@@ -37,5 +43,48 @@ goToAddProduct(){
 
    
   }
+
+  Del(id:string,event:any){
+    this._movieService.DeleteProduct(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        // const index=this.AllProductsForAdmin.findIndex(product=>product.id===id);
+        // if(index !== -1){
+        //   this.AllProductsForAdmin.splice(index,1);
+
+        const Tr=event.target.closest('tr');
+        if(Tr){
+          Tr.remove();
+        }
+        // }
+
+      }
+    })
+  }
+
+
+  // UpdateProduct(id:string) {
+  //   this._movieService.getProductById(id).subscribe({
+  //     next: (response) => {
+  //       console.log(response);
+  //       const navigationExtras:NavigationExtras = {
+  //         state: {
+  //           productData: response.data
+  //         }
+         
+
+  //       };
+  
+  //       // Navigate to the update component with navigation extras
+  //       this._router.navigate(['/update'], navigationExtras);
+  //     },
+  //     error: (error) => {
+  //       console.error('Error:', error);
+  //     }
+  //   });
+  // }
+
+
+  
 
 }

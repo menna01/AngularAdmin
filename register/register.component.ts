@@ -29,6 +29,7 @@ registerForm:FormGroup= new FormGroup({
   password:new FormControl(null,[Validators.required,Validators.pattern(/^[A-Z a-z]/)])
 
 })
+islogin:boolean=false;
 
 
 
@@ -41,6 +42,7 @@ submitRegisterForm(registerForm:FormGroup){
   this.isloadind=true;
 
 
+
   this._authService.signUp(registerForm.value).subscribe({
     next:(response)=>{ //هنا بترجع الريسبونس نفسها
       console.log(response);
@@ -48,6 +50,8 @@ submitRegisterForm(registerForm:FormGroup){
       if(response.status==="success"){ 
       localStorage.setItem('userToken',response.token);
       this._authService.saveUserData();
+      this.islogin=true;
+
       this._router.navigate(['/about'])//مسدج ديه جوا الاوبجكت نفسه
       console.log(response.status);
       console.log(response.token) //navigate take array

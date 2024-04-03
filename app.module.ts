@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MediaitemsComponent } from './mediaitems/mediaitems.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AddformComponent } from './addform/addform.component';
+import { UpdateComponent } from './update/update.component';
+import { OrdersComponent } from './orders/orders.component';
 // import { ProductsComponent } from './products/products.component';
 
 
@@ -36,6 +38,8 @@ import { AddformComponent } from './addform/addform.component';
     MediaitemsComponent,
     MovieDetailsComponent,
     AddformComponent,
+    UpdateComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
