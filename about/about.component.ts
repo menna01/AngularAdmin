@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { response } from 'express';
 import { NavigationExtras } from '@angular/router';
 import { strict } from 'assert';
+import { FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-about',
@@ -18,7 +21,8 @@ export class AboutComponent implements OnInit {
 
   }
 
-
+  termControl: FormControl = new FormControl('');
+  filteredProducts: any[] = [];
 
   AllProductsForAdmin:any[]=[];
 
@@ -33,7 +37,12 @@ goToAddProduct(){
     
     this._movieService.getProducts().subscribe({
 
-      next:(response)=>{this.AllProductsForAdmin=response.data.products
+      next:(response)=>{this.AllProductsForAdmin=response.data.products;
+        this.searchProducts(' ');
+        console.log(response);
+        this.termControl.valueChanges.subscribe((value: string) => {
+          this.searchProducts(value);
+        });
       
       console.log(response),
     console.log(this.AllProductsForAdmin);},
@@ -45,25 +54,64 @@ goToAddProduct(){
   }
 
   Del(id:string,event:any){
-    this._movieService.DeleteProduct(id).subscribe({
-      next:(res)=>{
-        console.log(res);
-        // const index=this.AllProductsForAdmin.findIndex(product=>product.id===id);
-        // if(index !== -1){
-        //   this.AllProductsForAdmin.splice(index,1);
-        // $('#confirmationModal').modal('show');
-
-
-        const Tr=event.target.closest('tr');
-        if(Tr){
-          Tr.remove();
-        }
-        // }
+    Swal.fire({
+      text:"Are You Sure You Want To Delete It",
+      showCancelButton:true,
+      confirmButtonText:"yes , Delete It",
+      cancelButtonText:"No Cancel",
+      reverseButtons:true
+    }).then((res)=>{
+      if(res.isConfirmed){
+        this._movieService.DeleteProduct(id).subscribe({
+          next:(res)=>{
+            console.log(res);
+            // const index=this.AllProductsForAdmin.findIndex(product=>product.id===id);
+            // if(index !== -1){
+            //   this.AllProductsForAdmin.splice(index,1);
+            // $('#confirmationModal').modal('show');
+    
+    
+            const Tr=event.target.closest('tr');
+            if(Tr){
+              Tr.remove();
+            }
+            // }
+    
+          }
+        })
 
       }
     })
+ 
   }
+  // Delete(id:string,event:any){
+  //   Swal.fire({
+  //     text:"Are You Sure You Want To Delete It",
+  //     showCancelButton:true,
+  //     confirmButtonText:"yes , Delete It",
+  //     cancelButtonText:"No Cancel",
+  //     reverseButtons:true
+  //   }).then((res)=>{
+  //     if(res.isConfirmed){
+  //       this._movieService.DeleteProduct(id).subscribe({
+  //         next:(res)=>{
+  //           console.log(res);
+           
+    
+    
+  //           const Tr=event.target.closest('tr');
+  //           if(Tr){
+  //             Tr.remove();
+  //           }
+  //           // }
+    
+  //         }
+  //       })
 
+  //     }
+  //   })
+ 
+  // }
 
   // UpdateProduct(id:string) {
   //   this._movieService.getProductById(id).subscribe({
@@ -86,7 +134,17 @@ goToAddProduct(){
   //   });
   // }
 
-
+  searchProducts(term: string): void {
+    if (!term.trim()) {
+      // If search term is empty, show all products
+      this.filteredProducts = this.AllProductsForAdmin;
+    } else {
+      // Filter products based on search term
+      this.filteredProducts = this.AllProductsForAdmin.filter(product =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
+    }
+  }
   
 
 }

@@ -208,6 +208,16 @@ export class MoviesService {
   
 
    }
+   
+ 
+
+
+
+
+
+
+
+
    DeleteProduct(id:string){
     const token = localStorage.getItem("userToken");
    if (token) {
@@ -225,6 +235,12 @@ export class MoviesService {
    } else {
      return throwError("admin token not found in local storage");
    }
+
+
+
+
+
+   
    }
 
 

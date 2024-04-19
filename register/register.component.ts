@@ -3,6 +3,8 @@ import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 // import { Router } from 'express';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 
 
 
@@ -54,15 +56,21 @@ submitRegisterForm(registerForm:FormGroup){
 
       this._router.navigate(['/about'])//مسدج ديه جوا الاوبجكت نفسه
       console.log(response.status);
-      console.log(response.token) //navigate take array
+      // console.log(response.token) //navigate take array
       }
       else{
+       
         this.error=response.message;
+        // console.log(response.status)
 
       }
       
     },
-    error:(r)=>{console.log(r);
+    error:(r)=>{
+
+      Swal.fire(r.error.message+''+'ur not admin');
+
+      // console.log(r.error.message+''+'ur not admin')
     
     }
 

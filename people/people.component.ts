@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service';
+import { FormControl } from '@angular/forms';
+import { BlockList } from 'net';
+
 
 @Component({
   selector: 'app-people',
@@ -7,9 +10,12 @@ import { MoviesService } from '../movies.service';
   styleUrl: './people.component.css'
 })
 export class PeopleComponent implements OnInit {
-
+  termControl: FormControl = new FormControl('');
+  filteredProducts: any[] = [];
   Allcategories:any[]=[];
   allproducts:any[]=[];
+  
+
 
  
   constructor(private _productService:MoviesService) {
@@ -17,13 +23,19 @@ export class PeopleComponent implements OnInit {
     
   }
 
+  flage:boolean=false;
+ term:string='';
 
   ngOnInit(): void {
     this._productService.getAllProducts().subscribe({
       next:(response)=>{
         this.allproducts=response.data.products.splice(0,8);
+        this.searchProducts(' ');
         console.log(response);
         console.log(this.allproducts);
+        this.termControl.valueChanges.subscribe((value: string) => {
+          this.searchProducts(value);
+        });
 
       }
       ,
@@ -50,5 +62,15 @@ export class PeopleComponent implements OnInit {
 
     
   }
-
+  searchProducts(term: string): void {
+    if (!term.trim()) {
+      // If search term is empty, show all products
+      this.filteredProducts = this.allproducts;
+    } else {
+      // Filter products based on search term
+      this.filteredProducts = this.allproducts.filter(product =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
+    }
+  }
 }

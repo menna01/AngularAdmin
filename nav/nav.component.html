@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg bg-transparent navbar-dark ">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bolder"  routerlink="home">Admin Noxe</a>
+    <a class="navbar-brand fw-bolder"  routerlink="home">Admin </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,18 +9,18 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
     
-        <li class="nav-item">
-          <!-- <a *ngIf="islogin" class="nav-link" routerLink="home"  >Home</a> -->
+        <!-- <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" routerLink="home"  >Home</a>
           <a  class="nav-link" routerLink="home"  >Home</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="about"  >dashboard</a>
+          <a *ngIf="islogin"  class="nav-link" routerLink="about"  >dashboard</a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" routerLink="movies"  >Movies</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="tv"  >
+          <a *ngIf="islogin"  class="nav-link" routerLink="tv"  >
             <i
             class="fas fa-user me-1 text-gray fw-normal"></i>Users<small class="text-gray fw-normal"></small></a>
         </li>
@@ -28,7 +28,7 @@
           <a class="nav-link" routerLink="people"  >Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="orders"  > <i
+          <a  *ngIf="islogin"  class="nav-link" routerLink="orders"  > <i
             class="fas fa-dolly-flatbed me-1 text-gray"></i> orders<small class="text-gray fw-normal"></small></a>
         </li>
         <!-- <li class="nav-item">

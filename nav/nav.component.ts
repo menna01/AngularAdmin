@@ -19,6 +19,8 @@ constructor(private _authService:AuthService){
 
 
   ngOnInit(): void {
+    this.islogin=false;
+
   //   const token= localStorage.getItem("userToken");
   //  if(token){
   //   this.islogin=true;
@@ -27,22 +29,20 @@ constructor(private _authService:AuthService){
   //   this.islogin=false;
   //  }
   
-   
+  
     
  this._authService.userData.subscribe({
       next:()=>{
-        if(this._authService.userData.getValue != null){
-          this.islogin=true;
-      
-        }
-        else{
-          this.islogin=false;
-        }
-      },
+        if (this._authService.userData.getValue() != null) {
+        this.islogin = true;
+      } else {
+        this.islogin = false;
+      }
+    },
       error:()=>{}
       
     })
-    // if(this._authService.userData){
+//     // if(this._authService.userData){
     //   this.islogin=true;
 
     // }
@@ -54,7 +54,7 @@ constructor(private _authService:AuthService){
 
   signOut(){
     this._authService.signOut();
-    // this.islogin=false;
+    this.islogin=false;
   }
 
  

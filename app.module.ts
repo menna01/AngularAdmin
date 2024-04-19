@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+// import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 // import { LoginComponent } from './login/login.component';
@@ -20,13 +20,16 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AddformComponent } from './addform/addform.component';
 import { UpdateComponent } from './update/update.component';
 import { OrdersComponent } from './orders/orders.component';
+import { SearchPipe } from './search.pipe';
+import { FormsModule } from '@angular/forms';
+
 // import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    // HomeComponent,
     NavComponent,
     RegisterComponent,
     MoviesComponent,
@@ -40,12 +43,14 @@ import { OrdersComponent } from './orders/orders.component';
     AddformComponent,
     UpdateComponent,
     OrdersComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

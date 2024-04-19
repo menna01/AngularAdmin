@@ -2,11 +2,20 @@
 
 
 <div class="container">
+  
+ 
 
   <div class="row">
-    <div class="col-md-12">   
-      <button class="btn btn-primary m-2" (click)="goToAddProduct()"> Add Product</button>
+    <div class="col-md-12 d-flex justify-content-between">  
+      <div class="p-3">
+        <input [formControl]="termControl" placeholder="Search products" class="form-control " type="text" name="">
+    </div>
+    <div >
+      <button class="btn btn-primary m-3" (click)="goToAddProduct()"> Add New Product</button> 
+
+    </div>
   </div>
+  
   <div class="col-md-12 col-sm-12">
     <table class="table bg-danger">
   
@@ -24,7 +33,7 @@
         
       </thead>
       <tbody>
-        <tr *ngFor="let product of AllProductsForAdmin">
+        <tr *ngFor="let product of filteredProducts">
       
           <td>
             <img [src]="product.images[0]" class="img-size rounded-5 " alt="">
@@ -53,7 +62,7 @@
             
 
            
-            <td>         <button class="btn btn-danger m-2 p-2" (click)="Del(product.id,$event)">Delete</button>
+            <td><button class="btn btn-danger m-2 p-2" (click)="Del(product.id,$event)">Delete</button>
             </td>
 
             <td></td>
